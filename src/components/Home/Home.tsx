@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../App.css';
 import { Link } from 'react-router-dom';
+import { Routes } from '../../Router/routes';
 
 export const Home = () => {
   return (
@@ -9,7 +10,7 @@ export const Home = () => {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <Link to={'/form'}>Testing</Link>
+        <Link to={Routes.SellerDetails}>Testing wizard</Link>
       </header>
     </div>
   );

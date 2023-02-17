@@ -3,5 +3,9 @@ import './App.css';
 import { AppRouter } from './Router/AppRouter';
 
 export const App = () => {
-  return <AppRouter />;
+  return (
+    <div id="main">
+      <AppRouter />
+    </div>
+  );
 };

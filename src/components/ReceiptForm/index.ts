@@ -1,3 +1,3 @@
-import { ReceiptForm } from './RecepitForm';
+import { FormWizard } from './FormWizard/FormWizard';
 
-export default ReceiptForm;
+export default FormWizard;

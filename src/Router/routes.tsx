@@ -3,17 +3,27 @@ import Home from '../components/Home';
 import ReceiptForm from '../components/ReceiptForm';
 import ReviewReceipt from '../components/ReviewReceipt';
 
+export enum Routes {
+  Home = '/',
+  ReceiptForm = '/form/:section',
+  ReviewDetails = '/review-details',
+  SellerDetails = '/form/Seller',
+  BuyerDetails = '/form/Buyer',
+  TransactionDetails = '/form/Transaction',
+  VehicleDetails = '/form/Vehicle',
+}
+
 export const AppRoutes: RouteObject[] = [
   {
-    path: '/',
+    path: Routes.Home,
     element: <Home />,
   },
   {
-    path: '/form',
+    path: Routes.ReceiptForm,
     element: <ReceiptForm />,
   },
   {
-    path: '/review-details',
+    path: Routes.ReviewDetails,
     element: <ReviewReceipt />,
   },
 ];
