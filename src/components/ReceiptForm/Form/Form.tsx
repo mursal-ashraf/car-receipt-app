@@ -1,9 +1,10 @@
-import { TextField } from '@mui/material';
-import { Stack as Spacer } from '@mui/system';
 import React from 'react';
+import { Spacer } from '../../common';
 import { useAppStateContext } from '../../../Context/context';
 import { getFormConfig } from './formConfig';
 import { generateFormHeading } from './utils';
+import { H2 } from '../../common/Typography';
+import FormField from './FormField';
 
 interface FormProps {
   section: FormSection;
@@ -15,26 +16,22 @@ export const FormComponent: React.FC<FormProps> = ({ section }) => {
   if (!config) return <></>;
 
   return (
-    <Spacer spacing={2}>
-      <h2>{generateFormHeading(config?.formHeading)}</h2>
-      {config?.fields.map((field) => {
-        const path = appState.getCorrectOnChangeFunction(
-          config?.formHeading,
-          field
-        );
-        const onChange = (onChangeEvent: OnChangeEvent) => {
-          const value = onChangeEvent?.target?.value;
-          appState.update(path, value);
-        };
-        return (
-          <TextField
-            label={field}
-            onChange={onChange}
-            value={appState.getWithPath(path)}
-            key={field}
-          />
-        );
-      })}
-    </Spacer>
+    <>
+      <H2>{generateFormHeading(config?.formHeading)}</H2>
+      <Spacer>
+        {config?.fields.map((field) => {
+          const path = appState.getPathFromHeaderAndField(
+            config?.formHeading,
+            field
+          );
+          const onChange = (e: OnChangeEvent) => {
+            const value = e?.target?.value;
+            appState.update(path, value);
+          };
+          const value = appState.getWithPath(path);
+          return <FormField {...{ field, onChange, value }} />;
+        })}
+      </Spacer>
+    </>
   );
 };

@@ -38,11 +38,8 @@ export const createAppState = () => {
         salePrice: null,
       },
     },
-    getCorrectOnChangeFunction(header: FormSection, field: FormField) {
-      const path = `data.${headerToMainObject(header)}.${fieldToPathMap(
-        field
-      )}`;
-      return path;
+    getPathFromHeaderAndField(header: FormSection, field: FormField) {
+      return `data.${headerToMainObject(header)}.${fieldToPathMap(field)}`;
     },
     update(path: string, value: string) {
       set(this.data, path, value);

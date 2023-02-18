@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, ButtonGroup } from '@mui/material';
+import { ButtonGroup as Buttons } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { ContainedButton } from '../../../common';
 
 interface FooterProps {
   goingBackButtonName?: string;
@@ -21,14 +22,16 @@ export const Footer: React.FC<FooterProps> = ({
 }) => {
   const navigateTo = useNavigate();
   return (
-    <ButtonGroup style={{ display: 'flex', justifyContent: 'space-between' }}>
-      <Button variant="contained" onClick={() => navigateTo(previousRoute)}>
-        {!!goingBackButtonName ? goingBackButtonName : 'Back'}
-      </Button>
+    <Buttons style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <ContainedButton
+        onClick={() => navigateTo(previousRoute)}
+        text={!!goingBackButtonName ? goingBackButtonName : 'Back'}
+      />
 
-      <Button variant="contained" onClick={() => navigateTo(nextRoute)}>
-        {!!progressButtonName ? progressButtonName : 'Next'}
-      </Button>
-    </ButtonGroup>
+      <ContainedButton
+        onClick={() => navigateTo(nextRoute)}
+        text={!!progressButtonName ? progressButtonName : 'Next'}
+      />
+    </Buttons>
   );
 };
