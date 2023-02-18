@@ -1,18 +1,15 @@
 import { TextField } from '@mui/material';
 import { Stack as Spacer } from '@mui/system';
-import { toUpper } from 'lodash';
-import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { useAppStateContext } from '../../../Context/context';
-import { FormSection, getFormConfig } from './formConfig';
+import { getFormConfig } from './formConfig';
+import { generateFormHeading } from './utils';
 
 interface FormProps {
   section: FormSection;
 }
 
-const generateFormHeading = (header: string) => toUpper(`${header} Details`);
-
-const FormComponent: React.FC<FormProps> = ({ section }) => {
+export const FormComponent: React.FC<FormProps> = ({ section }) => {
   const appState = useAppStateContext();
   const config = getFormConfig(section);
   if (!config) return <></>;
@@ -25,8 +22,8 @@ const FormComponent: React.FC<FormProps> = ({ section }) => {
           config?.formHeading,
           field
         );
-        const onChange = (onChangeEvent: any) => {
-          const value = onChangeEvent.target.value;
+        const onChange = (onChangeEvent: OnChangeEvent) => {
+          const value = onChangeEvent?.target?.value;
           appState.update(path, value);
         };
         return (
@@ -41,5 +38,3 @@ const FormComponent: React.FC<FormProps> = ({ section }) => {
     </Spacer>
   );
 };
-
-export const Form = observer(FormComponent);

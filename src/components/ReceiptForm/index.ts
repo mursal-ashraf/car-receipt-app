@@ -1,3 +1,3 @@
-import { FormWizard } from './FormWizard/FormWizard';
+import FormWizard from './FormWizard';
 
 export default FormWizard;

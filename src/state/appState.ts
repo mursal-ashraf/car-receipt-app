@@ -1,4 +1,5 @@
 import { set, get } from 'lodash';
+import { fieldToPathMap, headerToMainObject } from './utils';
 
 export const createAppState = () => {
   return {
@@ -37,7 +38,7 @@ export const createAppState = () => {
         salePrice: null,
       },
     },
-    getCorrectOnChangeFunction(header: string, field: string) {
+    getCorrectOnChangeFunction(header: FormSection, field: FormField) {
       const path = `data.${headerToMainObject(header)}.${fieldToPathMap(
         field
       )}`;
@@ -53,40 +54,3 @@ export const createAppState = () => {
 };
 
 export type AppState = ReturnType<typeof createAppState>;
-
-interface HeaderToPathMap {
-  [key: string]: string | undefined;
-}
-
-const headerToMainObject = (header: string) => {
-  const headerToPathMap = {
-    Seller: 'sellerDetails',
-    Buyer: 'buyerDetails',
-    Vehicle: 'vehicleDetails',
-    Transaction: 'transactionDetails',
-  };
-  return (headerToPathMap as HeaderToPathMap)[header] || 'error';
-};
-
-const fieldToPathMap = (field: string) => {
-  const fieldToPathMap = {
-    'Full name': 'name',
-    'Licence/Customer Number': 'licenseNumber',
-    Address: 'address',
-    Suburb: 'suburb',
-    State: 'state',
-    Postcode: 'postcode',
-    'Phone number': 'phoneNumber',
-    'Email Address': 'emailAddress',
-    Registration: 'registration',
-    Make: 'make',
-    Model: 'model',
-    'Manafacture Year': 'manafactureYear',
-    'Body Type': 'bodyType',
-    VIN: 'vin',
-    'Date of Sale': 'dateOfSale',
-    'Time of Sale': 'timeOfSale',
-    'Sale price': 'salePrice',
-  };
-  return (fieldToPathMap as HeaderToPathMap)[field] || field;
-};

@@ -1,36 +1,13 @@
-export type FormSection = 'Seller' | 'Buyer' | 'Vehicle' | 'Transaction';
-export enum FormSections {
-  Seller = 'Seller',
-  Buyer = 'Buyer',
-  Vehicle = 'Vehicle',
-  Transaction = 'Transaction',
-}
-
-const STAKEHOLDER_FIELDS = [
-  'Full name',
-  'Licence/Customer Number',
-  'Address',
-  'Suburb',
-  'State',
-  'Postcode',
-  'Phone Number',
-  'Email Address',
-];
-
-const TRANSACTION_FIELDS = ['Date of Sale', 'Time of Sale', 'Sale price'];
-
-const VEHICLE_FIELDS = [
-  'Registration',
-  'Make',
-  'Model',
-  'Manafacture Year',
-  'Body Type',
-  'VIN',
-];
+import {
+  FormSections,
+  STAKEHOLDER_FIELDS,
+  TRANSACTION_FIELDS,
+  VEHICLE_FIELDS,
+} from './utils';
 
 interface FormConfig {
-  formHeading: string;
-  fields: string[];
+  formHeading: FormSection;
+  fields: FormField[];
 }
 
 interface FormMapConfig {

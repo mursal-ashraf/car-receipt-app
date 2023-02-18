@@ -3,7 +3,7 @@ import '../../App.css';
 import { Link } from 'react-router-dom';
 import { Routes } from '../../Router/routes';
 
-export const Home = () => {
+export const Home: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
