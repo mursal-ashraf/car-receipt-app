@@ -39,7 +39,7 @@ export const createAppState = () => {
       },
     },
     getPathFromHeaderAndField(header: FormSection, field: FormField) {
-      return `data.${headerToMainObject(header)}.${fieldToPathMap(field)}`;
+      return `${headerToMainObject(header)}.${fieldToPathMap(field)}`;
     },
     update(path: string, value: string) {
       set(this.data, path, value);
