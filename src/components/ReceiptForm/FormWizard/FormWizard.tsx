@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Spacer } from '../../common';
+import { Spacer } from 'components/common';
 import Form from '../Form';
 import Footer from './Footer';
 import getWizardConfig from './FormWizardConfig';

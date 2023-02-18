@@ -1,3 +1,5 @@
 import { createAppState } from './appState';
+import { AppState } from './appState';
 
-export default createAppState;
+export { createAppState };
+export type { AppState };

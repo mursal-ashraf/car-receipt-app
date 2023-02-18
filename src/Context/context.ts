@@ -1,6 +1,6 @@
 import { isNil } from 'lodash';
 import React from 'react';
-import { AppState } from '../state/appState';
+import { AppState } from 'state';
 
 export const AppStateContext = React.createContext<AppState | null>(null);
 

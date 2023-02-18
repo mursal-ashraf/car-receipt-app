@@ -1,4 +1,4 @@
-import { Routes } from '../../../../Router/routes';
+import { Routes } from 'Router/routes';
 
 interface WizardConfigObject {
   goingBackButtonName?: string;

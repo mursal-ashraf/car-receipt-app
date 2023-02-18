@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonGroup as Buttons } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { ContainedButton } from '../../../common';
+import { ContainedButton } from 'components/common';
 
 interface FooterProps {
   goingBackButtonName?: string;

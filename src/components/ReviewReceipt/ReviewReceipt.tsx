@@ -1,8 +1,7 @@
 import { Button, ButtonGroup } from '@mui/material';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Spacer } from '../common';
-import { H1 } from '../common/Typography';
+import { Spacer, H1 } from 'components/common';
 import { generateAccordianFromSection, SECTIONS } from './utils';
 
 export const ReviewReceipt: React.FC = () => {

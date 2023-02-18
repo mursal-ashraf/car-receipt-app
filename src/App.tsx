@@ -3,7 +3,7 @@ import { useLocalObservable } from 'mobx-react-lite';
 import './App.css';
 import { AppStateContext } from './Context/context';
 import { AppRouter } from './Router';
-import createAppState from './state';
+import { createAppState } from 'state';
 
 export const App: React.FC = () => {
   const appState = useLocalObservable(createAppState);

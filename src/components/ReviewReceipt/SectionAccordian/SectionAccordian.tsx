@@ -8,8 +8,8 @@ import {
 } from '@mui/material';
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Spacer } from '../../common';
-import Form from '../../ReceiptForm/Form';
+import { Spacer } from 'components/common';
+import Form from 'components/ReceiptForm/Form';
 
 interface SectionAccordianProps {
   section: FormSection;

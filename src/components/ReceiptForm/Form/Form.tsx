@@ -1,9 +1,8 @@
 import React from 'react';
-import { Spacer } from '../../common';
-import { useAppStateContext } from '../../../Context/context';
+import { Spacer, H2 } from 'components/common';
+import { useAppStateContext } from 'Context/context';
 import { getFormConfig } from './formConfig';
 import { generateFormHeading } from './utils';
-import { H2 } from '../../common/Typography';
 import FormField from './FormField';
 
 interface FormProps {
