@@ -20,7 +20,7 @@ export const fieldToPathMap = (field: string) => {
     Suburb: 'suburb',
     State: 'state',
     Postcode: 'postcode',
-    'Phone number': 'phoneNumber',
+    'Phone Number': 'phoneNumber',
     'Email Address': 'emailAddress',
     Registration: 'registration',
     Make: 'make',
