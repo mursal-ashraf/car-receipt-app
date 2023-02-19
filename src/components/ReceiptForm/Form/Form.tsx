@@ -32,7 +32,12 @@ export const FormComponent: React.FC<FormProps> = ({
             appState.update(path, value);
           };
           const value = appState.getWithPath(path);
-          return <FormField {...{ field, onChange, value, readOnly }} />;
+          return (
+            <FormField
+              {...{ field, onChange, value, readOnly }}
+              key={`${section}-${field}`}
+            />
+          );
         })}
       </Spacer>
     </>

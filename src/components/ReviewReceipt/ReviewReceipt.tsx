@@ -1,27 +1,20 @@
-import { Button, ButtonGroup } from '@mui/material';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { ButtonGroup as Buttons } from '@mui/material';
 import { Spacer, H1 } from 'components/common';
 import { generateAccordianFromSection, SECTIONS } from './utils';
+import { useAppStateContext } from 'Context/context';
+import GeneratePDFButton from './GeneratePDFButton';
 
 export const ReviewReceipt: React.FC = () => {
-  const navigateTo = useNavigate();
+  const appState = useAppStateContext();
   return (
     <>
       <H1>Review details</H1>
       <Spacer>
-        <ButtonGroup
-          style={{ display: 'flex', justifyContent: 'space-between' }}
-        >
-          <Button onClick={() => navigateTo('/pdf')}>Generate PDF</Button>
-        </ButtonGroup>
         {SECTIONS.map(generateAccordianFromSection)}
-
-        <ButtonGroup
-          style={{ display: 'flex', justifyContent: 'space-between' }}
-        >
-          <Button onClick={() => navigateTo('/pdf')}>Generate PDF</Button>
-        </ButtonGroup>
+        <Buttons style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <GeneratePDFButton {...{ appState }} />
+        </Buttons>
       </Spacer>
     </>
   );
