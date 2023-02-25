@@ -1,4 +1,5 @@
 import {
+  FieldObject,
   FormSections,
   STAKEHOLDER_FIELDS,
   TRANSACTION_FIELDS,
@@ -7,7 +8,7 @@ import {
 
 interface FormConfig {
   formHeading: FormSection;
-  fields: FormField[];
+  fields: FieldObject[];
 }
 
 interface FormMapConfig {

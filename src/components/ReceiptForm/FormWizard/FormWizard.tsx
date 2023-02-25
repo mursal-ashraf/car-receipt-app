@@ -1,9 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Spacer } from 'components/common';
+import { H2, Spacer } from 'components/common';
 import Form from '../Form';
 import Footer from './Footer';
 import getWizardConfig from './FormWizardConfig';
+import { generateFormHeading } from '../Form/utils';
 
 export const FormWizard: React.FC = () => {
   const { section } = useParams<{ section: FormSection }>();
@@ -14,6 +15,7 @@ export const FormWizard: React.FC = () => {
 
   return (
     <Spacer>
+      <H2>{generateFormHeading(section)}</H2>
       <Form {...{ section }} />
       <Footer {...config} />
     </Spacer>

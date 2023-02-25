@@ -1,4 +1,5 @@
 import { TextField, TextFieldProps } from '@mui/material';
+import { error } from 'console';
 import React from 'react';
 
 interface FormFieldProps {
@@ -6,6 +7,8 @@ interface FormFieldProps {
   onChange: (e: OnChangeEvent) => void;
   value: string;
   readOnly: boolean;
+  error: boolean;
+  helperText: string | null;
 }
 
 export const FormField: React.FC<FormFieldProps> = ({
@@ -13,6 +16,8 @@ export const FormField: React.FC<FormFieldProps> = ({
   onChange,
   value,
   readOnly,
+  error,
+  helperText,
 }) => {
   const props: TextFieldProps = {
     label: field,
@@ -22,6 +27,8 @@ export const FormField: React.FC<FormFieldProps> = ({
     key: field,
     required: true,
     InputProps: { ...{ readOnly } },
+    error,
+    helperText,
   };
   return <TextField {...props} />;
 };
