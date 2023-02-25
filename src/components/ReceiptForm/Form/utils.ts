@@ -2,18 +2,21 @@ import { toUpper } from 'lodash';
 import {
   addressValidator,
   bodyTypeValidator,
+  dateValidator,
   emailAddressValidator,
   licenseNumberValidator,
   makeValidator,
   modelValidator,
-  MYValidator,
   nameValidator,
   phoneNumberValidator,
   postcodeValidator,
+  priceValidator,
   regoValidator,
   stateValidator,
   suburbValidator,
+  timeValidator,
   vinValidator,
+  yearValidator,
 } from './Validators/fieldValidators';
 
 export const generateFormHeading = (header: FormSection) =>
@@ -78,17 +81,17 @@ export const STAKEHOLDER_FIELDS: FieldObject[] = [
 export const TRANSACTION_FIELDS: FieldObject[] = [
   {
     fieldName: 'Date of Sale',
-    validator: nameValidator,
+    validator: dateValidator,
     helperText: 'Enter date in DD/MM/YYYY',
   },
   {
     fieldName: 'Time of Sale',
-    validator: nameValidator,
+    validator: timeValidator,
     helperText: 'Enter time in HH:MM AM/PM',
   },
   {
     fieldName: 'Sale price',
-    validator: nameValidator,
+    validator: priceValidator,
     helperText: 'Enter the sale price',
   },
 ];
@@ -107,7 +110,7 @@ export const VEHICLE_FIELDS: FieldObject[] = [
   },
   {
     fieldName: 'Manafacture Year',
-    validator: MYValidator,
+    validator: yearValidator,
     helperText: 'Enter model year',
   },
   {

@@ -33,9 +33,8 @@ export const FormComponent: React.FC<FormProps> = ({
         const error = field.validator(value);
         return (
           <FormField
-            {...{ onChange, value, readOnly }}
             key={`${section}-${field.fieldName}`}
-            error={error}
+            {...{ onChange, value, readOnly, error }}
             field={fieldName}
             helperText={error ? field.helperText : null}
           />
