@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import { Spacer } from 'components/common';
 import { useAppStateContext } from 'Context/context';
 import { getFormConfig } from './formConfig';
@@ -15,7 +16,8 @@ export const FormComponent: React.FC<FormProps> = ({
 }) => {
   const appState = useAppStateContext();
   const config = getFormConfig(section);
-  if (!config) return <></>;
+
+  if (!config) return <Navigate to={'/'} />;
 
   return (
     <Spacer>
