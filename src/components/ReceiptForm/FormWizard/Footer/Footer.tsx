@@ -2,6 +2,7 @@ import React from 'react';
 import { ButtonGroup as Buttons } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { ContainedButton } from 'components/common';
+import { useAppStateContext } from 'Context/context';
 
 interface FooterProps {
   goingBackButtonName?: string;
@@ -21,6 +22,7 @@ export const Footer: React.FC<FooterProps> = ({
   validator,
 }) => {
   const navigateTo = useNavigate();
+  const appState = useAppStateContext();
   return (
     <Buttons style={{ display: 'flex', justifyContent: 'space-between' }}>
       <ContainedButton
@@ -29,7 +31,9 @@ export const Footer: React.FC<FooterProps> = ({
       />
 
       <ContainedButton
-        onClick={() => navigateTo(nextRoute)}
+        onClick={() => {
+          if (validator(appState)) navigateTo(nextRoute);
+        }}
         text={!!progressButtonName ? progressButtonName : 'Next'}
       />
     </Buttons>
