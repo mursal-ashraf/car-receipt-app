@@ -5,6 +5,7 @@ import Form from '../Form';
 import Footer from './Footer';
 import getWizardConfig from './FormWizardConfig';
 import { generateFormHeading } from '../Form/utils';
+import RefreshDisclaimer from 'components/common/RefreshDisclaimer';
 
 export const FormWizard: React.FC = () => {
   const { section } = useParams<{ section: FormSection }>();
@@ -16,6 +17,7 @@ export const FormWizard: React.FC = () => {
   return (
     <Spacer>
       <H2>{generateFormHeading(section)}</H2>
+      <RefreshDisclaimer />
       <Form {...{ section }} />
       <Footer {...config} />
     </Spacer>
