@@ -3,7 +3,7 @@ import { error } from 'console';
 import React from 'react';
 
 interface FormFieldProps {
-  field: string;
+  fieldName: string;
   onChange: (e: OnChangeEvent) => void;
   value: string;
   readOnly: boolean;
@@ -12,7 +12,7 @@ interface FormFieldProps {
 }
 
 export const FormField: React.FC<FormFieldProps> = ({
-  field,
+  fieldName,
   onChange,
   value,
   readOnly,
@@ -20,11 +20,11 @@ export const FormField: React.FC<FormFieldProps> = ({
   helperText,
 }) => {
   const props: TextFieldProps = {
-    label: field,
+    label: fieldName,
     onChange: onChange,
     value: value,
     variant: 'filled',
-    key: field,
+    key: fieldName,
     required: true,
     InputProps: { ...{ readOnly } },
     error,

@@ -19,24 +19,23 @@ export const FormComponent: React.FC<FormProps> = ({
 
   return (
     <Spacer>
-      {config?.fields.map((field) => {
+      {config?.fields.map((fieldObject) => {
+        const { fieldName, validator, helperText, beautifier } = fieldObject;
         const path = appState.getPathFromHeaderAndField(
           config?.formHeading,
-          field.fieldName as FormField
+          fieldName
         );
         const onChange = (e: OnChangeEvent) => {
-          const value = e?.target?.value;
-          appState.update(path, value);
+          const newValue = e?.target?.value;
+          appState.update(path, newValue.replace('$ ', ''));
         };
-        const value = appState.getWithPath(path);
-        const fieldName = field.fieldName as FormField;
-        const error = field.validator(value);
+        const value = beautifier(appState.getWithPath(path));
+        const error = validator(appState.getWithPath(path));
         return (
           <FormField
-            key={`${section}-${field.fieldName}`}
-            {...{ onChange, value, readOnly, error }}
-            field={fieldName}
-            helperText={error ? field.helperText : null}
+            key={`${section}-${fieldName}`}
+            {...{ onChange, value, readOnly, error, fieldName }}
+            helperText={error ? helperText : null}
           />
         );
       })}

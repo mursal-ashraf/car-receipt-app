@@ -23,7 +23,7 @@ declare type VehicleField =
 declare type FormField = StakeholderField | TransactionField | VehicleField;
 
 declare interface OnChangeEvent {
-  target?: {
-    value?: any;
+  target: {
+    value: string;
   };
 }
