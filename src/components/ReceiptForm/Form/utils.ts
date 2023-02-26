@@ -17,7 +17,7 @@ import {
   timeValidator,
   vinValidator,
   yearValidator,
-} from './Validators/fieldValidators';
+} from 'utils/FieldValidators';
 
 export const generateFormHeading = (header: FormSection) =>
   toUpper(`${header} Details`);

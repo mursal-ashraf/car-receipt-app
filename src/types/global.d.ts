@@ -27,3 +27,29 @@ declare interface OnChangeEvent {
     value: string;
   };
 }
+
+declare interface StakeholderDetails {
+  name: string;
+  address: string;
+  licenseNumber: string;
+  suburb: string;
+  state: string;
+  postcode: string;
+  phoneNumber: string;
+  emailAddress: string;
+}
+
+declare interface VehicleDetails {
+  registration: string;
+  make: string;
+  model: string;
+  manafactureYear: string;
+  bodyType: string;
+  vin: string;
+}
+
+declare interface TransactionDetails {
+  dateOfSale: string;
+  timeOfSale: string;
+  salePrice: string;
+}

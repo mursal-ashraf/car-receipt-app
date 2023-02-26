@@ -7,7 +7,6 @@ import { useAppStateContext } from 'Context/context';
 interface FooterProps {
   goingBackButtonName?: string;
   progressButtonName?: string;
-  onFinish?: any;
   validator: any;
   previousRoute: string;
   nextRoute: string;
@@ -18,7 +17,6 @@ export const Footer: React.FC<FooterProps> = ({
   progressButtonName,
   previousRoute,
   nextRoute,
-  onFinish,
   validator,
 }) => {
   const navigateTo = useNavigate();
